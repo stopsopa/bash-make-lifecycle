@@ -1,5 +1,32 @@
 {
   "dependencies": {
     "forever": "^0.15.3"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "bash-make-lifecycle",
+  "description": "[![Build Status](https://travis-ci.org/stopsopa/bash-make-lifecycle.svg?branch=master)](https://travis-ci.org/stopsopa/bash-make-lifecycle)",
+  "version": "1.0.0",
+  "main": "install.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stopsopa/bash-make-lifecycle.git"
+  },
+  "keywords": [
+    "make",
+    "start",
+    "stop",
+    "script"
+  ],
+  "author": "Szymon Dzialowski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stopsopa/bash-make-lifecycle/issues"
+  },
+  "homepage": "https://github.com/stopsopa/bash-make-lifecycle#readme"
 }
