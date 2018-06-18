@@ -12,6 +12,9 @@
   "directories": {
     "test": "test"
   },
+  "bin": {
+    "bash-make-lifecycle" : "./install.js"
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",
