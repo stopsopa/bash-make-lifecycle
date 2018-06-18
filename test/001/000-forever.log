@@ -1,0 +1,3 @@
+warn:    --spinSleepTime not set. Your script will exit if it does not stay up for at least 2000ms
+error: Forever detected script exited with code: 0
+error: Script restart attempt #1

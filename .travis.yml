@@ -1,0 +1,16 @@
+language: node_js
+dist: trusty
+
+node_js:
+  - "8"
+
+cache:
+  directories:
+    - node_modules
+
+env:
+  global:
+    - TRAVIS=true
+
+script:
+  - make t

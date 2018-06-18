@@ -1,0 +1,15 @@
+-----v __0__ v----->>>
+
+
+         🌎  Listening on port 1025, start time: __3__
+            --help for more info
+    
+
+    stop after: 2500
+
+
+attempt to stop after 2500
+<<<
+stopped with status code: 1
+-----^-----
+
