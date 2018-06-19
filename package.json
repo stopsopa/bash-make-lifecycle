@@ -7,7 +7,7 @@
   },
   "name": "bash-make-lifecycle",
   "description": "[![Build Status](https://travis-ci.org/stopsopa/bash-make-lifecycle.svg?branch=master)](https://travis-ci.org/stopsopa/bash-make-lifecycle)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "install.js",
   "directories": {
     "test": "test"
