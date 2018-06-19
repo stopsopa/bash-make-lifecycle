@@ -401,12 +401,16 @@ if ( ! target ) {
 
 target = path.resolve(process.cwd(), target);
 
+console.log('before mkdirP')
+
 mkdirP(target, err => {
 
     if (err) {
 
         return console.error(`mkdirP: ${err}`);
     }
+
+    console.log('before ncp')
 
     ncp(__dirname, target, {
         filter: (...args) => {
@@ -421,6 +425,8 @@ mkdirP(target, err => {
 
             return console.error(`ncp: ${err}`);
         }
+
+        console.log('before end')
 
         process.stdout.write(`\n    Directory '${target}' has been created, enjoy 🍺\n\n`);
 
