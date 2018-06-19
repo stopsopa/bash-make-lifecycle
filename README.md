@@ -1,5 +1,5 @@
 
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/bash-make-lifecycle)
+[![npm version](https://badge.fury.io/js/bash-make-lifecycle@2x.png)](https://badge.fury.io/js/bash-make-lifecycle)
 [![Build Status](https://travis-ci.org/stopsopa/bash-make-lifecycle.svg?branch=master)](https://travis-ci.org/stopsopa/bash-make-lifecycle)
 
 

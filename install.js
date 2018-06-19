@@ -419,7 +419,7 @@ target = path.resolve(process.cwd(), target);
 
 const package = require(path.resolve(__dirname, 'package.json'));
 
-console.log(`\nInstalling ${package.name}@${package.version}\n`);
+console.log(`\n    Installing ${package.name}@${package.version}`);
 
 mkdirP(target, err => {
 
