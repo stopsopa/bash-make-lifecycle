@@ -428,17 +428,15 @@ mkdirP(target, err => {
         return console.error(`mkdirP: ${err}`);
     }
 
-    console.log('before ncp')
-
     ncp(__dirname, target, {
         filter: file => {
 
             const copy = ignoreFilter(file);
 
-            console.log(JSON.stringify({
-                file,
-                copy
-            }, null, 4))
+            // console.log(JSON.stringify({
+            //     file,
+            //     copy
+            // }, null, 4))
 
             return copy;
         }
@@ -448,8 +446,6 @@ mkdirP(target, err => {
 
             return console.error(`ncp: ${err}`);
         }
-
-        console.log('before end')
 
         process.stdout.write(`\n    Directory '${target}' has been created, enjoy 🍺\n\n`);
 
