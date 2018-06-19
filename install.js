@@ -401,7 +401,9 @@ if ( ! target ) {
 
 target = path.resolve(process.cwd(), target);
 
-console.log('before mkdirP')
+const package = require(path.resolve(__dirname, 'package.json'));
+
+console.log(`\nInstalling ${package.name}@${package.version}\n`);
 
 mkdirP(target, err => {
 
