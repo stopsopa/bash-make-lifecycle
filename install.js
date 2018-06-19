@@ -407,6 +407,8 @@ ncp(__dirname, target, {
     filter: (...args) => {
 
         console.log(JSON.stringify(args, null, 4))
+
+        return true;
     }
 }, err => {
 
