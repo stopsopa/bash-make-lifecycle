@@ -401,22 +401,29 @@ if ( ! target ) {
 
 target = path.resolve(process.cwd(), target);
 
-mkdirP(target);
-
-ncp(__dirname, target, {
-    filter: (...args) => {
-
-        console.log(JSON.stringify(args, null, 4))
-
-        return true;
-    }
-}, err => {
+mkdirP(target, err => {
 
     if (err) {
 
-        return console.error(err);
+        return console.error(`mkdirP: ${err}`);
     }
 
-    process.stdout.write(`\n    Directory '${target}' has been created, enjoy 🍺\n\n`);
+    ncp(__dirname, target, {
+        filter: (...args) => {
 
+            console.log(JSON.stringify(args, null, 4))
+
+            return true;
+        }
+    }, err => {
+
+        if (err) {
+
+            return console.error(`ncp: ${err}`);
+        }
+
+        process.stdout.write(`\n    Directory '${target}' has been created, enjoy 🍺\n\n`);
+
+    });
 });
+
