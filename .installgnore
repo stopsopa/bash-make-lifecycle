@@ -1,0 +1,16 @@
+/logs/
+/node_modules/
+/make/tmp.counter
+/.idea/
+/.gitignore
+/.travis.yml
+/Dockerfile
+/README.md
+/server.js
+/test/
+/update.sh
+
+/.installgnore
+/README.md
+/install.js
+/node_modules
