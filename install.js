@@ -3,13 +3,29 @@
 const path  = require('path');
 const fs    = require('fs');
 
-let ignore = path.resolve(__dirname, '.installgnore');
+const ignoreFilter = (function () {
 
-ignore = fs.readFileSync(ignore).toString();
+    let ignore = path.resolve(__dirname, '.installgnore');
 
-ignore = ignore.split("\n");
+    ignore = fs.readFileSync(ignore).toString();
 
-ignore = ignore.map(n => n.trim()).filter(n => n).filter(n => n.indexOf('#') !== 0);
+    ignore = ignore.split("\n");
+
+    ignore = ignore.map(n => n.trim()).filter(n => n).filter(n => n.indexOf('#') !== 0);
+
+    const len = __dirname.length;
+
+    return file => {
+
+        file = file.substring(len);
+
+        return !ignore.find(n => {
+
+            return file.indexOf(n) === 0
+        });
+    }
+}());
+
 
 /**
  * https://github.com/AvianFlu/ncp
@@ -415,11 +431,16 @@ mkdirP(target, err => {
     console.log('before ncp')
 
     ncp(__dirname, target, {
-        filter: (...args) => {
+        filter: file => {
 
-            console.log(JSON.stringify(args, null, 4))
+            const copy = ignoreFilter(file);
 
-            return true;
+            console.log(JSON.stringify({
+                file,
+                copy
+            }, null, 4))
+
+            return copy;
         }
     }, err => {
 
