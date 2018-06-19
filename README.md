@@ -36,4 +36,8 @@ to test in docker/linux
 - [more about --cap-add=SYS_TIME](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)
 
  
- 
+# Dev notes
+
+To update this lib after commit just run:
+
+    /bin/bash update.sh 
