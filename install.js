@@ -408,6 +408,13 @@ ncp(__dirname, target, {
 
         console.log(JSON.stringify(args, null, 4))
     }
-});
+}, err => {
 
-process.stdout.write(`\n    Directory '${target}' has been created, enjoy 🍺\n\n`);
+    if (err) {
+
+        return console.error(err);
+    }
+
+    process.stdout.write(`\n    Directory '${target}' has been created, enjoy 🍺\n\n`);
+
+});
