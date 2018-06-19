@@ -265,13 +265,38 @@ function ncp (source, dest, options, callback) {
 
 
 
-// ncp(__dirname, process.argv[2]);
 
-console.log(JSON.stringify({
-    'process.cwd()' : process.cwd(),
-    argv: process.argv,
-    __dirname_type: typeof __dirname,
-    __dirname_json: JSON.stringify(__dirname),
-    __filename_type: typeof __filename,
-    __filename_json: JSON.stringify(__filename),
-}, null, 4));
+// console.log(JSON.stringify({
+//     'process.cwd()' : process.cwd(),
+//     argv: process.argv,
+//     __dirname_type: typeof __dirname,
+//     __dirname_json: JSON.stringify(__dirname),
+//     __filename_type: typeof __filename,
+//     __filename_json: JSON.stringify(__filename),
+// }, null, 4));
+//
+// {
+//     "process.cwd()": "/Users/sd/Workspace/projects/bash-make-lifecycle/install-test", # where i executed "npx bash-make-lifecycle test"
+//     "argv": [
+//     "/usr/local/bin/node",
+//     "/Users/sd/.npm/_npx/60150/bin/bash-make-lifecycle",
+//     "test"
+// ],
+//     "__dirname_type": "string",
+//     "__dirname_json": "\"/Users/sd/.npm/_npx/60150/lib/node_modules/bash-make-lifecycle\"", # where are all files temporary installed
+//     "__filename_type": "string",
+//     "__filename_json": "\"/Users/sd/.npm/_npx/60150/lib/node_modules/bash-make-lifecycle/install.js\""
+// }
+
+let target = ((process.argv[2] || '') + '').trim();
+
+if ( ! target ) {
+
+    throw `\n\n    target is not specified, give it in first argument\n\n`;
+}
+
+target = path.resolve(process.cwd(), target);
+
+ncp(__dirname, target);
+
+console.log('test... done');
