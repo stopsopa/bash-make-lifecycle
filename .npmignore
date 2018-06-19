@@ -6,6 +6,5 @@
 /.travis.yml
 /Dockerfile
 /README.md
-/server.js
 /test/
 /update.sh
