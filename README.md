@@ -19,6 +19,12 @@ Provide tested set of bash script to run, stop, and keep running any script.
     or 
     
     npx bash-make-lifecycle target-dir
+    
+then follow Makefile
+
+    make start
+    make stop
+    make status    
 
 # about "forever"
 
