@@ -6,7 +6,7 @@
 
 # Purpose of this library
 
-Provide tested set of bash script to run, stop, and keep running any script.
+Provide tested set of bash scripts to run, keep running, and stop any script.
 
 # requirements
 
