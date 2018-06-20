@@ -22,7 +22,10 @@ Provide tested set of bash scripts to run, keep running, and stop any script.
     
 then follow Makefile
 
+    yarn
     make start
+    make status    
+    # now visit localhost:1025
     make stop
     make status    
 
