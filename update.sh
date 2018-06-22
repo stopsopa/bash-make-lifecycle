@@ -85,3 +85,4 @@ else
 
     red "\n\n    Nothing new to publish\n\n";
 fi
+
