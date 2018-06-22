@@ -53,7 +53,7 @@ if [ "$DIFF" != "" ]; then
 
     npm version patch
 
-    git push $ORIGIN $REMOTEBRANCH
+    git push $ORIGIN $REMOTEBRANCH --tags
 
     npm publish
 
