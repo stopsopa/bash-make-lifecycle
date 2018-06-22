@@ -29,7 +29,7 @@ if [ "$(git rev-parse --abbrev-ref HEAD)" != $LOCALBRANCH ]; then
 
     red "switch first branch to <$LOCALBRANCH>"
 
-    exit 1
+    exit 1;
 fi
 
 green "\ncurrent branch: $LOCALBRANCH";
@@ -42,7 +42,7 @@ if [ "$DIFF" != "" ]; then
 
     red "\n\n    Error: First commit changes ...\n\n";
 
-    exit 1
+    exit 2;
 fi
 
 DIFF="$(git diff --numstat $LOCALBRANCH $ORIGIN/$REMOTEBRANCH)"
@@ -50,6 +50,18 @@ DIFF="$(git diff --numstat $LOCALBRANCH $ORIGIN/$REMOTEBRANCH)"
 DIFF="$(trim "$DIFF")"
 
 if [ "$DIFF" != "" ]; then
+
+    git push $ORIGIN $REMOTEBRANCH --tags
+
+    if [ "$?" = "0" ]; then
+
+        npm publish
+    else
+
+        red "\n\nCan't git push - stop bumping version\n"
+
+        exit 3;
+    fi
 
     npm version patch
 
@@ -61,8 +73,9 @@ if [ "$DIFF" != "" ]; then
     else
 
         red "\n\nCan't git push\n"
-    fi
 
+        exit 4
+    fi
 
 else
 
