@@ -46,10 +46,6 @@ const ignoreFilter = (function () {
         return string;
     }
 
-    console.log({
-        ignore: ignore
-    }, null, 4);
-
     const ig = ignoretool().add(ignore);
 
     const len = __dirname.length;
@@ -72,8 +68,6 @@ const ignoreFilter = (function () {
         const dump = {};
 
         dump[file] = test;
-
-        console.log(JSON.stringify(dump));
 
         // false - ignore file
         // true - copy file
