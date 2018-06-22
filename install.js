@@ -35,7 +35,7 @@ const ignoreFilter = (function () {
 
     return file => {
 
-        return ig.ignores(file);
+        return !ig.ignores(file);
     }
 }());
 
