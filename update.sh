@@ -53,10 +53,7 @@ if [ "$DIFF" != "" ]; then
 
     git push $ORIGIN $REMOTEBRANCH --tags
 
-    if [ "$?" = "0" ]; then
-
-        npm publish
-    else
+    if [ "$?" != "0" ]; then
 
         red "\n\nCan't git push - stop bumping version\n"
 
