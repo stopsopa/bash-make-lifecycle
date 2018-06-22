@@ -43,7 +43,14 @@ const ignoreFilter = (function () {
 
         file = file.substring(len);
 
-        const test = !ig.ignores(file);
+        let test;
+
+        if (file) {
+            test = !ig.ignores(file);
+        }
+        else {
+            test = true;
+        }
 
         const dump = {};
 
@@ -51,6 +58,8 @@ const ignoreFilter = (function () {
 
         console.log(JSON.stringify(dump));
 
+        // false - ignore file
+        // true - copy file
         return test;
     }
 }());
