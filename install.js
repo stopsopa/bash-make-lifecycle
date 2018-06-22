@@ -32,8 +32,12 @@ const ignoreFilter = (function () {
 //     console.log(isfiltered ? 'true' : 'false');
 
     const ig = ignoretool().add(ignore);
+    
+    const len = __dirname.length;
 
     return file => {
+
+        file = file.substring(len);
 
         return !ig.ignores(file);
     }
