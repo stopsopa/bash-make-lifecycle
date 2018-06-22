@@ -55,7 +55,14 @@ if [ "$DIFF" != "" ]; then
 
     git push $ORIGIN $REMOTEBRANCH --tags
 
-    npm publish
+    if [ "$?" = "0" ]; then
+
+        npm publish
+    else
+
+        red "\n\nCan't git push\n"
+    fi
+
 
 else
 
