@@ -70,11 +70,18 @@ if [ "$DIFF" != "" ]; then
     if [ "$?" = "0" ]; then
 
         npm publish
+
+        if [ "$?" != "0" ]; then
+
+            red "\n\nCan't npm publish\n"
+
+            exit 4;
+        fi
     else
 
         red "\n\nCan't git push\n"
 
-        exit 4
+        exit 5
     fi
 
 else
