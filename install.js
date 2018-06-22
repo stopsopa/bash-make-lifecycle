@@ -13,16 +13,29 @@ const ignoreFilter = (function () {
 
     ignore = ignore.map(n => n.trim()).filter(n => n).filter(n => n.indexOf('#') !== 0);
 
-    const len = __dirname.length;
+    /**
+     * https://www.npmjs.com/package/ignore v4.0.2
+     * manually compressed
+     */
+    var ignoretool = function(){function e(e){return Array.isArray(e)?e:[e]}const t=/^\s+$/,r=/^\\!/,i=/^\\#/,s="/",n="undefined"!=typeof Symbol?Symbol.for("node-ignore"):"node-ignore",o=(e,t,r)=>Object.defineProperty(e,t,{value:r}),c=/([0-z])-([0-z])/g,a=[[/\\?\s+$/,e=>0===e.indexOf("\\")?" ":""],[/\\\s/g,()=>" "],[/[\\^$.|*+(){]/g,e=>`\\${e}`],[/\[([^\]/]*)($|\])/g,(e,t,r)=>"]"===r?`[${(e=>e.replace(c,(e,t,r)=>t.charCodeAt(0)<=r.charCodeAt(0)?e:""))(t)}]`:`\\${e}`],[/(?!\\)\?/g,()=>"[^/]"],[/^\//,()=>"^"],[/\//g,()=>"\\/"],[/^\^*\\\*\\\*\\\//,()=>"^(?:.*\\/)?"]],h=[[/^(?=[^^])/,function(){return/\/(?!$)/.test(this)?"^":"(?:^|\\/)"}],[/\\\/\\\*\\\*(?=\\\/|$)/g,(e,t,r)=>t+6<r.length?"(?:\\/[^\\/]+)*":"\\/.+"],[/(^|[^\\]+)\\\*(?=.+)/g,(e,t)=>`${t}[^\\/]*`],[/(\^|\\\/)?\\\*$/,(e,t)=>{return`${t?`${t}[^/]+`:"[^/]*"}(?=$|\\/$)`}],[/\\\\\\/g,()=>"\\"]],d=[...a,[/(?:[^*/])$/,e=>`${e}(?=$|\\/)`],...h],l=[...a,[/(?:[^*])$/,e=>`${e}(?=$|\\/$)`],...h],u={},_=e=>e&&"string"==typeof e&&!t.test(e)&&0!==e.indexOf("#"),f=(e,t)=>{const s=e;let n=!1;return 0===e.indexOf("!")&&(n=!0,e=e.substr(1)),{origin:s,pattern:e=e.replace(r,"!").replace(i,"#"),negative:n,regex:((e,t,r)=>{const i=u[e];if(i)return i;const s=(t?l:d).reduce((t,r)=>t.replace(r[0],r[1].bind(e)),e);return u[e]=r?new RegExp(s,"i"):new RegExp(s)})(e,n,t)}};class g{constructor({ignorecase:e=!0}={}){this._rules=[],this._ignorecase=e,o(this,n,!0),this._initCache()}_initCache(){this._cache={}}add(t){return this._added=!1,"string"==typeof t&&(t=t.split(/\r?\n/g)),e(t).forEach(this._addPattern,this),this._added&&this._initCache(),this}addPattern(e){return this.add(e)}_addPattern(e){if(e&&e[n])return this._rules=this._rules.concat(e._rules),void(this._added=!0);if(_(e)){const t=f(e,this._ignorecase);this._added=!0,this._rules.push(t)}}filter(t){return e(t).filter(e=>this._filter(e))}createFilter(){return e=>this._filter(e)}ignores(e){return!this._filter(e)}_filter(e,t){return!!e&&(e in this._cache?this._cache[e]:(t||(t=e.split(s)),t.pop(),this._cache[e]=t.length?this._filter(t.join(s)+s,t)&&this._test(e):this._test(e)))}_test(e){let t=0;return this._rules.forEach(r=>{t^r.negative||(t=r.negative^r.regex.test(e))}),!t}}if("undefined"!=typeof process&&(process.env&&process.env.IGNORE_TEST_WIN32||"win32"===process.platform)){const e=g.prototype._filter,t=e=>/^\\\\\?\\/.test(e)||/[^\x00-\x80]+/.test(e)?e:e.replace(/\\/g,"/");g.prototype._filter=function(r,i){return r=t(r),e.call(this,r,i)}}return e=>new g(e)}();
+
+//     const ig = ignoretool().add(['*.js']);
+//
+// // to extract filtered list of paths
+//     const filtered = ig.filter(paths)        // ['.abc/d/e.js']
+//
+//     console.log(filtered)
+//
+// // to check one path
+//     const isfiltered = ig.ignores('.abc/a.js');
+//
+//     console.log(isfiltered ? 'true' : 'false');
+
+    const ig = ignoretool().add(ignore);
 
     return file => {
 
-        file = file.substring(len);
-
-        return !ignore.find(n => {
-
-            return file.indexOf(n) === 0
-        });
+        return ig.ignores(file);
     }
 }());
 
