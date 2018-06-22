@@ -31,15 +31,27 @@ const ignoreFilter = (function () {
 //
 //     console.log(isfiltered ? 'true' : 'false');
 
+    console.log({
+        ignore: ignore
+    }, null, 4);
+
     const ig = ignoretool().add(ignore);
-    
+
     const len = __dirname.length;
 
     return file => {
 
         file = file.substring(len);
 
-        return !ig.ignores(file);
+        const test = !ig.ignores(file);
+
+        const dump = {};
+
+        dump[file] = test;
+
+        console.log(JSON.stringify(dump));
+
+        return test;
     }
 }());
 
