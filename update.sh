@@ -4,10 +4,34 @@ set -e
 
 set -o xtrace
 
-git push origin master
+trim() {
+    local var="$*"
+    # remove leading whitespace characters
+    var="${var#"${var%%[![:space:]]*}"}"
+    # remove trailing whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"
+    echo -n "$var"
+}
 
-npm version patch
+DIFF="$(git diff --numstat master origin/master)"
 
-npm publish
+DIFF="$(trim "$DIFF")"
+
+echo ">>>$DIFF<<<"
+
+if [ "$DIFF" != "" ]; then
+
+    printf "push then..."
+
+    exit 1;
+    git push origin master
+
+    npm version patch
+
+    npm publish
+
+else
+    printf "\n\n    Nothing new to publish\n\n";
+fi
 
 
