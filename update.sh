@@ -28,16 +28,15 @@ DIFF="$(git diff --numstat master origin/master)"
 
 DIFF="$(trim "$DIFF")"
 
-echo ">>>$DIFF<<<"
-
 if [ "$DIFF" != "" ]; then
 
-    printf "push then..."
-
-    exit 1;
-    git push origin master
-
     npm version patch
+
+echo 'stop...'
+
+    exit 1
+
+    git push origin master
 
     npm publish
 
