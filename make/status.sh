@@ -35,3 +35,4 @@ if [ "$PROC" == "" ]; then
 fi
 
 green "\n\n   SERVICE IS ON\n\n"
+
