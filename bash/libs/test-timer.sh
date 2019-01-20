@@ -3,7 +3,6 @@
 # but this is just for testing so doing this ugly way is still acceptable
 
 function _datetime {
-
     date "+%Y-%m-%d %H:%M:%S"
 }
 

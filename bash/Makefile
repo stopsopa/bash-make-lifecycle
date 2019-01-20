@@ -8,6 +8,3 @@ stop:
 status:
 	/bin/bash bash/proc/status.sh ../../.env PROCESS_FLAG
 
-# test
-t:
-	/bin/bash test/test.sh

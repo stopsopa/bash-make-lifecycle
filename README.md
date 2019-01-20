@@ -12,7 +12,7 @@ Provide tested set of bash scripts to run, keep running, and stop any script.
 
 - [forever](https://www.npmjs.com/package/forever) - [version](https://github.com/stopsopa/bash-make-lifecycle/blob/master/package.json#L3)
 
-# npx usage
+# npx usage (DON'T USE: need update)
 
     npx bash-make-lifecycle
     

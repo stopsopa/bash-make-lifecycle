@@ -5,7 +5,7 @@ DIR="$( cd "$( dirname "${THISFILE}" )" && pwd -P )"
 
 source "$DIR/.env"
 
-source "$DIR/make/test-timer.sh"
+source "$DIR/bash/libs/test-timer.sh"
 
 TIME="$(_datetime)";
 
