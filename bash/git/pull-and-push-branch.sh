@@ -17,6 +17,9 @@ remote="$1"
 source="$2"
 target="$3"
 
+THISFILE=${BASH_SOURCE[0]}
+DIR="$( cd "$( dirname "${THISFILE}" )" && pwd -P )"
+
 source "$DIR/../libs/colours.sh";
 
 if [ "$#" -lt 3 ] ; then

@@ -4,6 +4,9 @@
 
 main="$1"
 
+THISFILE=${BASH_SOURCE[0]}
+DIR="$( cd "$( dirname "${THISFILE}" )" && pwd -P )"
+
 source "$DIR/../libs/colours.sh";
 
 set -e

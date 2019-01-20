@@ -4,6 +4,9 @@
 
 target="$1"
 
+THISFILE=${BASH_SOURCE[0]}
+DIR="$( cd "$( dirname "${THISFILE}" )" && pwd -P )"
+
 source "$DIR/../libs/colours.sh";
 
 if [ "$#" -lt 1 ] ; then

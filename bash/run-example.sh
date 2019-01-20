@@ -28,7 +28,7 @@ if [ "$1" = "" ]; then
 fi
 
 # load tools
-source "$DIR/bash/libs/test-timer.sh"
+source "$DIR/bash/proc/test-timer.sh"
 
 # create log dir and file path
 LOGDIR="$DIR/logs/$(_date)"
