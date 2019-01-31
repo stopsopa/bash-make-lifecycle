@@ -49,7 +49,7 @@ fi
 
 shift;
 
-LOGDIR="$DIR/../../logs"
+LOGDIR="$DIR/../../var/logs"
 
 mkdir -p "$LOGDIR"
 

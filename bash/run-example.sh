@@ -31,7 +31,7 @@ fi
 source "$DIR/bash/proc/test-timer.sh"
 
 # create log dir and file path
-LOGDIR="$DIR/logs/$(_date)"
+LOGDIR="$DIR/var/logs/$(_date)"
 mkdir -p "$LOGDIR"
 LOGFILE="$LOGDIR/$(_time).log"
 

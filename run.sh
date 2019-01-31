@@ -9,7 +9,7 @@ source "$DIR/bash/libs/test-timer.sh"
 
 TIME="$(_datetime)";
 
-LOGDIR="$DIR/logs/$(_date)"
+LOGDIR="$DIR/var/logs/$(_date)"
 
 mkdir -p "$LOGDIR"
 
